@@ -68,5 +68,11 @@ $(function() {
     // 渲染完成后利用layui的动态效果
     layui.element.render('nav','nav1');
   }
-
+  // 点击基础信息
+  // $('.jbzl').on('click', function(e) {
+  //   // console.log(1);
+  //   // $('.jbzl01').click()
+  //   location.href = '/user/user.html'
+  //   $('.jbzl01').attr('target','iframe')
+  // })
 })
