@@ -19,6 +19,7 @@
     <div class="layui-card-body">
       <!-- 表单 -->
       <form class="layui-form" lay-filter="user-form">
+        <input type="text" name="id" style="display: none">
         <!-- 登录名称 -->
         <div class="layui-form-item">
           <label class="layui-form-label">登录名称</label>
@@ -31,14 +32,14 @@
         <div class="layui-form-item">
           <label class="layui-form-label">用户昵称</label>
           <div class="layui-input-block">
-            <input type="text" name="nickname" required placeholder="请输入用户昵称" autocomplete="off" class="layui-input">
+            <input lay-verify="nickname" type="text" name="nickname" required placeholder="请输入用户昵称" autocomplete="off" class="layui-input" maxlength="5">
           </div>
         </div>
         <!-- 用户邮箱 -->
         <div class="layui-form-item">
           <label class="layui-form-label">用户邮箱</label>
           <div class="layui-input-block">
-            <input type="text" name="email" required placeholder="请输入用户邮箱" autocomplete="off" class="layui-input">
+            <input lay-verify="email" type="text" name="email" required placeholder="请输入用户邮箱" autocomplete="off" class="layui-input">
           </div>
         </div>
         <!-- 按钮 -->
