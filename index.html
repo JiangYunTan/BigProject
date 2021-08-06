@@ -5,6 +5,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>大事件管理后台</title>
+
+  <!-- 判断是否有登录权限 -->
+  <script>
+    if(!localStorage.getItem('token')) {
+      // 跳转到登录页面
+      location.href = 'login.html'
+    }
+  </script>
   <!-- 导入 layui 的样式表 -->
   <link rel="stylesheet" href="/assets/lib/layui/css/layui.css">
   <!-- 导入字体图标的样式 -->
@@ -21,13 +29,9 @@
         <img src="/assets/images/logo.png" alt="">
       </div>
       <!-- 头部区域（可配合layui 已有的水平导航） -->
-      <ul class="layui-nav layui-layout-right" lay-filter="header-nav">
+      <ul class="layui-nav layui-layout-right" lay-filter="nav1">
         <li class="layui-nav-item layui-hide layui-show-md-inline-block">
-          <a href="javascript:;" id="header-avatar">
-            <img src="http://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg"
-              class="layui-nav-img">
-            <div class="text-avatar">A</div>
-            个人中心
+          <a href="javascript:;" id="header-avatar" >
           </a>
           <dl class="layui-nav-child">
             <dd><a href="">基本资料</a></dd>
@@ -47,16 +51,12 @@
       <div class="layui-side-scroll">
         <!-- 用户的信息区域 -->
         <div class="user-info-box">
-          <img src="http://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg"
-            class="layui-nav-img">
-          <div class="text-avatar">A</div>
-          <span class="welcome">&nbsp;欢迎&nbsp; xxx</span>
         </div>
         <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
         <ul class="layui-nav layui-nav-tree" lay-filter="side-nav" lay-shrink="all">
           <li class="layui-nav-item layui-this">
             <!-- 一级标题 -->
-            <a href="javascript:;"><span class="iconfont icon-home"></span>首页</a>
+            <a href="/home/dashboard.html" target="iframe"><span class="iconfont icon-home"></span>首页</a>
           </li>
           <li class="layui-nav-item">
             <!-- 一级标题 -->
@@ -85,7 +85,10 @@
     <!-- 页面主体区域 -->
     <div class="layui-body">
       <!-- 内容主体区域 -->
-      <div id="container"></div>
+      <div id="container">
+        <!-- 承载侧边栏对应的页面 -->
+        <iframe src="/home/dashboard.html" frameborder="0" name="iframe"></iframe>
+      </div>
     </div>
 
     <!-- 页面底部区域 -->
@@ -94,6 +97,12 @@
       © www.itheima.com - 黑马程序员
     </div>
   </div>
+
+  <!-- js -->
+  <script src="/assets/lib/jquery.js"></script>
+  <script src="/assets/lib/axios.js"></script>
+  <script src="/assets/lib/layui/layui.all.js"></script>
+  <script src="/assets/js/index.js"></script>
 </body>
 
 </html>
