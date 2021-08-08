@@ -39,16 +39,14 @@
     // 判断用户头像是否存在
     if(res.data.user_pic) {
       // 顶部区域信息
+      // 找到name头字母并大写res.data.username.charAt(0).toUpperCase()
       $('#header-avatar').html(`
         <img src="${res.data.user_pic}"class="layui-nav-img">
-        // 找到name头字母并大写res.data.username.charAt(0).toUpperCase()
-            <div class="text-avatar">${res.data.username.charAt(0).toUpperCase()}</div>
             个人中心
       `)
       // 侧部区域信息
       $('.user-info-box').html(`
         <img src="${res.data.user_pic}" class="layui-nav-img">
-        <div class="text-avatar">${res.data.username.charAt(0).toUpperCase()}</div>
         <span class="welcome">&nbsp;欢迎&nbsp;${res.data.nickname}</span>
       `)
     }else {

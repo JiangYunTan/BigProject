@@ -13,7 +13,7 @@ $(function() {
       if(res.code == 0) {
         layer.msg(res.message);
         // location.href = '/login.html'
-        window.open('/login.html',"_search")
+        window.parent.location.href = '/login.html'
       }else {
         layer.msg(res.message);
       }
@@ -24,7 +24,7 @@ $(function() {
   layui.form.verify({
     pass: [
       /^[\S]{6,15}$/,
-      '密码必须6到12位，且不能出现空格'
+      '密码必须6到15位，且不能出现空格'
     ],
     alike:function(value,item) {
 
@@ -37,8 +37,6 @@ $(function() {
       if(value !== $('.xmm').val()) {
         return '必须与新密码相同'
       }
-    }
- 
-
+    } 
   })
 })
