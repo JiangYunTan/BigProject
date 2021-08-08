@@ -21,7 +21,7 @@
         Authorization: localStorage.getItem('token')
       }
     }).then(({data:res}) => {
-      console.log('获取成功',res);
+      // console.log('获取成功',res);
       // 渲染页面
       Jpave(res)
     },(error) => {
