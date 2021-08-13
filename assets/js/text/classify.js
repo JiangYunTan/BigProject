@@ -35,6 +35,7 @@ $(function() {
       area: ['400px', '230px']
     });
 
+    // 添加表单事件监听
     $('#form-add').submit(function(e) {
       // console.log($(this).serialize());
       e.preventDefault();
@@ -58,14 +59,17 @@ $(function() {
 
   // 点击修改按钮
   $('tbody').on('click','.btn-edit',function() {
+    var del_id = $(this).data('myid');
+    if(del_id == 1 || del_id == 2) {
+      return layer.msg('此数据不可更改');
+    }
     layer.open({
       title: '添加文章分类',
       type: 1,
       content: $('#template_xg').html(),
       area: ['400px', '230px']
     });
-
-    var del_id = $(this).data('myid');
+    
     axios({
       method: 'GET',
       url: '/my/cate/info',

@@ -64,3 +64,9 @@
     // 渲染完成后利用layui的动态效果
     layui.element.render('nav','nav1');
   }
+
+  // 高亮显示 在publish。js 中调用
+  function Jclass(KW) {
+    $('dd').removeClass('layui-this')
+    $(`dd:contains(${KW})`).addClass('layui-this')
+  }
